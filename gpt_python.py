@@ -2,6 +2,8 @@ import openai
 import os
 import time
 
+os.environ["http_proxy"] = "http://127.0.0.1:10809"
+os.environ["https_proxy"] = "http://127.0.0.1:10809"
 
 def create_chat(chat_array):
     response = openai.ChatCompletion.create(
