@@ -44,6 +44,7 @@ def record_text(new_message, response_message, filename):
 
 
 if __name__ == '__main__':
+    
     openai.api_key = verify()
     mode_setting = '万能的什么都会的俏皮的gpt3.5_turbo'
     messages = [
@@ -51,15 +52,18 @@ if __name__ == '__main__':
     ]
     filename = create_record_filename()
     print("连接成功，开启对话：")
-    while (True):
-        human_input = input('你: ')
-        new_message = {
-            'role': 'user',
-            'content': human_input
-        }
-        messages.append(new_message)
-        response = create_chat(chat_array=messages)
-        response_message = response['choices'][0]['message']
-        messages.append(response_message)
-        print('{}: {}'.format('gpt_turbo', response_message['content']))
-        record_text(new_message, response_message, filename)
+    try:
+        while (True):
+            human_input = input('你: ')
+            new_message = {
+                'role': 'user',
+                'content': human_input
+            }
+            messages.append(new_message)
+            response = create_chat(chat_array=messages)
+            response_message = response['choices'][0]['message']
+            messages.append(response_message)
+            print('{}: {}'.format('gpt_turbo', response_message['content']))
+            record_text(new_message, response_message, filename)
+    except:
+        psaa
