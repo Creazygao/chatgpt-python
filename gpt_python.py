@@ -66,4 +66,4 @@ if __name__ == '__main__':
             print('{}: {}'.format('gpt_turbo', response_message['content']))
             record_text(new_message, response_message, filename)
     except:
-        psaa
+        pass
